@@ -1,0 +1,17 @@
+# config/deploy.yml
+service: server
+image: ashleyrudland87/ai-chatbot
+servers:
+    - <%= ENV["VPS_IP"] %>
+registry:
+    username:
+        - KAMAL_REGISTRY_USERNAME
+    password:
+        - KAMAL_REGISTRY_PASSWORD
+port: 3000
+volumes:
+  - "ai-chatbot-data:/ai-chatbot-data/"
+env:
+  secret:
+    - OPENAI_API_KEY
+    - AUTH_SECRET
